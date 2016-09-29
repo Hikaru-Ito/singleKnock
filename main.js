@@ -1,3 +1,4 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 //初期データ
 let data = []
 for(let i = 0; i < 10; i += 1) {
@@ -54,17 +55,18 @@ let Main = React.createClass({
     backTimer = setTimeout(this.posBack, 2000)
     let pos = this.state.pos
     console.log(pos)
-    if(longPress) {
-      pos.push(0)
-      console.log("LongPress")
-    } else {
+    if(!longPress) {
       console.log("shortPress")
       pos[pos.length-1] = (data.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
     }
     this.setState({pos: pos})
   },
   pressTimer: function() {
+    console.log("LongPress")
     longPress = true
+    let pos = this.state.pos
+    pos.push(0)
+    this.setState({pos: pos})
   },
   render: function() {
     return (
@@ -85,10 +87,17 @@ let Item = React.createClass({
     let style = {
       color: pos == this.props.class ? "red" : "#000000"
     }
-    return (<div className={this.props.class} style={style}>
-      {this.props.text}
-      <Items items={this.props.items} pos={pos}/>
-      </div>);
+    return (
+      <ReactCSSTransitionGroup
+        transitionName="item"
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={1000}>
+        <div className={this.props.class} style={style}>
+            {this.props.text}
+          <Items items={this.props.items} pos={pos}/>
+        </div>
+      </ReactCSSTransitionGroup>
+    );
   }
 })
 
@@ -104,11 +113,6 @@ let Items = React.createClass({
           show = false
         }
       }
-      // for (let i = 0; i < posArray.length-1; i++) {
-      //   if (key.length < i) {
-      //     show = false
-      //   }
-      // }
       return (
         <Item text={item.title} class={item.key} items= {item.children} pos={pos} key={item.key}>
         </Item>

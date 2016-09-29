@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello React!</title>
-    <script src="build/react.js"></script>
+    <script src="build/react-with-addons.min.js"></script>
     <script src="build/react-dom.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
     <style type="text/css">
@@ -12,6 +12,36 @@
       }
       .items {
         margin-left: 16px;
+      }
+      .item-enter {
+        opacity: 0.01;
+      }
+
+      .item-enter.item-enter-active {
+        opacity: 1;
+        transition: opacity 1000ms ease-in;
+      }
+
+      .item-leave {
+        opacity: 1;
+      }
+
+      .item-leave.item-leave-active {
+        opacity: 0.01;
+        transition: opacity 1000ms ease-in;
+      }
+      div {
+        animation: fadeIn 2s ease 0s 1 normal;
+        -webkit-animation: fadeIn 2s ease 0s 1 normal;
+      }
+      @keyframes fadeIn {
+        0% {opacity: 0}
+        100% {opacity: 1}
+      }
+
+      @-webkit-keyframes fadeIn {
+        0% {opacity: 0}
+        100% {opacity: 1}
       }
     </style>
   </head>
