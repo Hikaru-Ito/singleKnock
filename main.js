@@ -23,9 +23,11 @@ for(let i = 0; i < 10; i += 1) {
 }
 
 //longPressのTimerを入れとく変数
-let timer
+let pressTimer
 //longPressか判断する変数
 let longPress
+//戻るのタイマー入れとくとこ
+let backTimer
 
 // Class宣言
 let Main = React.createClass({
@@ -33,12 +35,23 @@ let Main = React.createClass({
     let pos = [0]
     return {pos: pos}
   },
+  posBack: function() {
+    console.log("きたぞー")
+    let pos = this.state.pos;
+    backTimer = setTimeout(this.posBack, 2000)
+    if (pos.length > 1) {
+      pos.pop()
+      this.setState({pos: pos})
+    }
+  },
   mouseDown: function(e) {
     longPress = false
-    timer = setTimeout(this.pressTimer, 200)
+    pressTimer = setTimeout(this.pressTimer, 200)
+    clearTimeout(backTimer)
   },
   mouseUp: function(e) {
-    clearTimeout(timer)
+    clearTimeout(pressTimer)
+    backTimer = setTimeout(this.posBack, 2000)
     let pos = this.state.pos
     console.log(pos)
     if(longPress) {
