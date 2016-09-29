@@ -88,15 +88,10 @@ let Item = React.createClass({
       color: pos == this.props.class ? "red" : "#000000"
     }
     return (
-      <ReactCSSTransitionGroup
-        transitionName="item"
-        transitionEnterTimeout={1000}
-        transitionLeaveTimeout={1000}>
         <div className={this.props.class} style={style}>
             {this.props.text}
           <Items items={this.props.items} pos={pos}/>
         </div>
-      </ReactCSSTransitionGroup>
     );
   }
 })
@@ -119,7 +114,16 @@ let Items = React.createClass({
       )
     })
     if (!show) { items = ""}
-    return <div className="items">{items}</div>;
+    return (
+      <div className="items">
+      <ReactCSSTransitionGroup
+        transitionName="item"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}>
+        {items}
+      </ReactCSSTransitionGroup>
+      </div>
+    );
   }
 })
 
