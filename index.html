@@ -5,10 +5,22 @@
     <title>Hello React!</title>
     <script src="build/react-with-addons.min.js"></script>
     <script src="build/react-dom.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
     <style type="text/css">
       body {
         font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        height: 100%;
+      }
+      #main {
+        -webkit-flex-direction: row; /* Safari */
+        flex: 1;
+      }
+      #content {
+        flex: 4;
+        height: 700px;
       }
       .items {
         margin-left: 16px;
@@ -34,6 +46,7 @@
   </head>
   <body>
     <div id="main"></div>
+    <iframe id="content" src="http://mbsupport.dip.jp/hp/hps01.htm"></iframe>
     <script type="text/babel" src="main.js"></script>
   </body>
 </html>

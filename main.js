@@ -16,6 +16,7 @@ for(let i = 0; i < 10; i += 1) {
       itemk["title"] = "title" + i + "-" + j +"-" + k
       itemk["key"] = i + "-" + j + "-" + k
       itemk["children"] = []
+      itemk["url"] = "https://www.youtube.com/embed/IALr6M2NXsE"
       itemj.children.push(itemk)
     }
     item.children.push(itemj)
@@ -29,6 +30,8 @@ let pressTimer
 let longPress
 //戻るのタイマー入れとくとこ
 let backTimer
+//SpeechAPIの設定
+
 
 // Class宣言
 let Main = React.createClass({
@@ -80,13 +83,24 @@ let Main = React.createClass({
 let Item = React.createClass({
   render: function() {
     let pos = this.props.pos
-    if(pos == this.props.class){
-      console.log(this.props.class)
+    let style = {}
+    if (pos == this.props.class) {
+      style.color = "red"
+      //音の読み上げ
+      speechSynthesis.cancel()
+      let synthesis = new SpeechSynthesisUtterance();
+      synthesis.lang = 'ja-JP'
+      synthesis.rate = 1.5
+      synthesis.text = this.props.text
+      speechSynthesis.speak(synthesis)
+    } else {
+      style.color = "#000000"
     }
-    //文字列にしないと 01 と 1 が同じと判断されてしまう
-    let style = {
-      color: pos == this.props.class ? "red" : "#000000"
+    if (pos == this.props.class && this.props.url) {
+      console.log("コンテンツ遷移")
+      $('#content').attr('src', this.props.url);
     }
+
     return (
         <div className={this.props.class} style={style}>
             {this.props.text}
@@ -109,7 +123,7 @@ let Items = React.createClass({
         }
       }
       return (
-        <Item text={item.title} class={item.key} items= {item.children} pos={pos} key={item.key}>
+        <Item text={item.title} class={item.key} items= {item.children} pos={pos} key={item.key} url={item.url}>
         </Item>
       )
     })
