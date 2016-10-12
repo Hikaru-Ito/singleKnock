@@ -1,4 +1,5 @@
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
+
 //初期データ
 let data = []
 for(let i = 0; i < 10; i += 1) {
@@ -24,6 +25,24 @@ for(let i = 0; i < 10; i += 1) {
   data.push(item)
 }
 
+$.ajaxSetup({async: false});//同期通信(json取ってくるまで待つ)
+$.getJSON("data.json", function(json) {
+  console.log(json)
+    data = json // this will show the info it in firebug console
+});
+data = data.data
+for(let i = 0; i < data.length; i += 1) {
+  data[i].key = i
+  for(let j = 0; j < data[i].children.length; j += 1) {
+    data[i].children[j].key = i+"-"+j
+    for( let k = 0; k < data[i].children[j].children.length; k +=1) {
+      data[i].children[j].children[k].key = i + "-" + j + "-" + k
+    }
+  }
+}
+
+console.log(data)
+
 //longPressのTimerを入れとく変数
 let pressTimer
 //longPressか判断する変数
@@ -44,7 +63,9 @@ let Main = React.createClass({
     backTimer = setTimeout(this.posBack, 2000)
     let pos = this.state.pos
 
-    if (pos[pos.length-1] == 0) {
+    if (pos[pos.length-1] == 0 && pos.length == 1) {
+      console.log("TOP")
+    } else if (pos[pos.length-1] == 0) {
       pos.pop()
       pos[pos.length-1] = 0
       this.setState({pos: pos})
@@ -65,17 +86,15 @@ let Main = React.createClass({
     console.log(pos)
     if(!longPress) {
       console.log("shortPress")
-      pos[pos.length-1] = (data.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
+      // 現在位置のListを取ってくる
+      let tmp = data;
+      for(let i = 0; i < pos.length-1; i += 1) {
+        tmp = tmp[pos[i]].children
+      }
+      pos[pos.length-1] = (tmp.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
     }
     this.setState({pos: pos})
   },
-  // pressTimer: function() {
-  //   console.log("LongPress")
-  //   longPress = true
-  //   let pos = this.state.pos
-  //   pos.push(0)
-  //   this.setState({pos: pos})
-  // },
   render: function() {
     return (
       <div onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
