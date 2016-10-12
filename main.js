@@ -40,21 +40,26 @@ let Main = React.createClass({
     return {pos: pos}
   },
   posBack: function() {
-    console.log("きたぞー")
-    let pos = this.state.pos;
+    console.log("時間経過")
     backTimer = setTimeout(this.posBack, 2000)
-    if (pos.length > 1) {
+    let pos = this.state.pos
+
+    if (pos[pos.length-1] == 0) {
       pos.pop()
+      pos[pos.length-1] = 0
+      this.setState({pos: pos})
+    } else {
+      pos.push(0)
       this.setState({pos: pos})
     }
   },
   mouseDown: function(e) {
     longPress = false
-    pressTimer = setTimeout(this.pressTimer, 200)
+    // pressTimer = setTimeout(this.pressTimer, 200)
     clearTimeout(backTimer)
   },
   mouseUp: function(e) {
-    clearTimeout(pressTimer)
+    // clearTimeout(pressTimer)
     backTimer = setTimeout(this.posBack, 2000)
     let pos = this.state.pos
     console.log(pos)
@@ -64,13 +69,13 @@ let Main = React.createClass({
     }
     this.setState({pos: pos})
   },
-  pressTimer: function() {
-    console.log("LongPress")
-    longPress = true
-    let pos = this.state.pos
-    pos.push(0)
-    this.setState({pos: pos})
-  },
+  // pressTimer: function() {
+  //   console.log("LongPress")
+  //   longPress = true
+  //   let pos = this.state.pos
+  //   pos.push(0)
+  //   this.setState({pos: pos})
+  // },
   render: function() {
     return (
       <div onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
