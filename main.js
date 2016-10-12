@@ -1,5 +1,4 @@
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
-
 //初期データ
 let data = {}
 $.ajaxSetup({async: false});//同期通信(json取ってくるまで待つ)
@@ -47,7 +46,8 @@ let Main = React.createClass({
     // urlを持っていれば遷移
     if (item.url) {
       console.log("コンテンツ遷移")
-      $('#content').attr('src', this.props.url);
+      console.log(this.props.url)
+      window.opener.location.href = item.url
 
     // TOPであれば移動しない
     } else if (pos[pos.length-1] == 0 && pos.length == 1) {
