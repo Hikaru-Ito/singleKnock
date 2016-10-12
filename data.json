@@ -123,6 +123,49 @@
           ]
         }
       ]
+    },
+    {
+      "title": "カメラ",
+      "children": [
+        {
+          "title": "戻る",
+          "children": []
+        },
+        {
+          "title": "玄関",
+          "children": [],
+          "url": "https://www.youtube.com/embed/k4xGqY5IDBE"
+        },
+        {
+          "title": "デルタ",
+          "children": [],
+          "url": "https://www.youtube.com/embed/k4xGqY5IDBE"
+        },
+        {
+          "title": "イオタ",
+          "children": [],
+          "url": "https://www.youtube.com/embed/k4xGqY5IDBE"
+        }
+      ]
+    },
+    {
+      "title": "エアコン",
+      "children": [
+        {
+          "title": "戻る",
+          "children": []
+        },
+        {
+          "title": "オン",
+          "children": [],
+          "url": "https://www.youtube.com/embed/k4xGqY5IDBE"
+        },
+        {
+          "title": "オフ",
+          "children": [],
+          "url": "https://www.youtube.com/embed/k4xGqY5IDBE"
+        }
+      ]
     }
   ]
 }

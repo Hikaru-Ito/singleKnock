@@ -1,36 +1,15 @@
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 
 //初期データ
-let data = []
-for(let i = 0; i < 10; i += 1) {
-  let item = {}
-  item["title"] = "title" + i
-  item["key"] = i
-  item["children"] = []
-  for(let j = 0; j < 10; j += 1) {
-    let itemj = {}
-    itemj["title"] = "title" + i + "-" + j
-    itemj["key"] = i+"-"+j
-    itemj["children"] = []
-    for( let k = 0; k < 10; k +=1) {
-      let itemk = {}
-      itemk["title"] = "title" + i + "-" + j +"-" + k
-      itemk["key"] = i + "-" + j + "-" + k
-      itemk["children"] = []
-      itemk["url"] = "https://www.youtube.com/embed/IALr6M2NXsE"
-      itemj.children.push(itemk)
-    }
-    item.children.push(itemj)
-  }
-  data.push(item)
-}
-
+let data = {}
 $.ajaxSetup({async: false});//同期通信(json取ってくるまで待つ)
 $.getJSON("data.json", function(json) {
   console.log(json)
     data = json // this will show the info it in firebug console
 });
 data = data.data
+
+//keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
   data[i].key = i
   for(let j = 0; j < data[i].children.length; j += 1) {
@@ -41,8 +20,6 @@ for(let i = 0; i < data.length; i += 1) {
   }
 }
 
-console.log(data)
-
 //longPressのTimerを入れとく変数
 let pressTimer
 //longPressか判断する変数
@@ -50,7 +27,6 @@ let longPress
 //戻るのタイマー入れとくとこ
 let backTimer
 //SpeechAPIの設定
-
 
 // Class宣言
 let Main = React.createClass({
@@ -60,17 +36,31 @@ let Main = React.createClass({
   },
   posBack: function() {
     console.log("時間経過")
-    backTimer = setTimeout(this.posBack, 2000)
     let pos = this.state.pos
+    backTimer = setTimeout(this.posBack, 1500)
+    // 現在位置のitemを取ってくる
+    let list = data;
+    for(let i = 0; i < pos.length-1; i += 1) {
+      list = list[pos[i]].children
+    }
+    let item = list[pos[pos.length-1]]
+    // urlを持っていれば遷移
+    if (item.url) {
+      console.log("コンテンツ遷移")
+      $('#content').attr('src', this.props.url);
 
-    if (pos[pos.length-1] == 0 && pos.length == 1) {
-      console.log("TOP")
+    // TOPであれば移動しない
+    } else if (pos[pos.length-1] == 0 && pos.length == 1) {
+
+    // Listの一番上なので戻る要素だから上の階層に移動
     } else if (pos[pos.length-1] == 0) {
       pos.pop()
       pos[pos.length-1] = 0
       this.setState({pos: pos})
+
+    // 下の階層に移動
     } else {
-      pos.push(0)
+      pos.push(1)
       this.setState({pos: pos})
     }
   },
@@ -87,13 +77,15 @@ let Main = React.createClass({
     if(!longPress) {
       console.log("shortPress")
       // 現在位置のListを取ってくる
-      let tmp = data;
+      let list = data;
       for(let i = 0; i < pos.length-1; i += 1) {
-        tmp = tmp[pos[i]].children
+        list = list[pos[i]].children
       }
-      pos[pos.length-1] = (tmp.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
+      pos[pos.length-1] = (list.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
     }
     this.setState({pos: pos})
+  },
+  componentDidMount: function() {
   },
   render: function() {
     return (
@@ -122,10 +114,10 @@ let Item = React.createClass({
     } else {
       style.color = "#000000"
     }
-    if (pos == this.props.class && this.props.url) {
-      console.log("コンテンツ遷移")
-      $('#content').attr('src', this.props.url);
-    }
+    // if (pos == this.props.class && this.props.url) {
+    //   console.log("コンテンツ遷移")
+    //   $('#content').attr('src', this.props.url);
+    // }
 
     return (
         <div className={this.props.class} style={style}>
