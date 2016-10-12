@@ -90,7 +90,9 @@ let Item = React.createClass({
     let pos = this.props.pos
     let style = {}
     if (pos == this.props.class) {
-      style.color = "red"
+      style.color = "white"
+      style.fontWeight = "bold"
+      style.background = "#000000"
       //音の読み上げ
       speechSynthesis.cancel()
       let synthesis = new SpeechSynthesisUtterance();
