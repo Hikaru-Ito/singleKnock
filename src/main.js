@@ -63,12 +63,12 @@ let Main = React.createClass({
       this.setState({pos: pos})
     }
   },
-  mouseDown: function(e) {
+  keyDown: function(e) {
     longPress = false
     // pressTimer = setTimeout(this.pressTimer, 200)
     clearTimeout(backTimer)
   },
-  mouseUp: function(e) {
+  keyUp: function(e) {
     // clearTimeout(pressTimer)
     backTimer = setTimeout(this.posBack, 2000)
     let pos = this.state.pos
@@ -85,11 +85,13 @@ let Main = React.createClass({
     this.setState({pos: pos})
   },
   componentDidMount: function() {
+    this.refs.nameInput.focus();
   },
   render: function() {
     return (
-      <div onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>
+      <div>
         <Items items={data} pos={this.state.pos.join('-')}/>
+        <input type="text" ref="nameInput" onKeyPress={this.keyDown} onKeyUp={this.keyUp}/>
       </div>
     );
   }
