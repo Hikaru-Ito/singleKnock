@@ -1,24 +1,20 @@
 {
   "data": [
     {
-      "title": "戻る",
-      "children": []
+      "title": "戻る"
     },
     {
       "title": "電気",
       "children": [
         {
-          "title": "戻る",
-          "children": []
+          "title": "戻る"
         },
         {
           "title": "点灯",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "消灯",
-          "children": [],
           "url": "http://google.co.jp"
         }
       ]
@@ -27,47 +23,38 @@
       "title": "テレビ",
       "children": [
         {
-          "title": "戻る",
-          "children": []
+          "title": "戻る"
         },
         {
           "title": "1ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "2ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "3ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "4ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "5ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "6ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "7ch",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "8ch",
-          "children": [],
           "url": "http://google.co.jp"
         }
       ]
@@ -76,29 +63,24 @@
       "title": "音楽",
       "children": [
         {
-          "title": "戻る",
-          "children": []
+          "title": "戻る"
         },
         {
           "title": "JPOP",
           "children": [
             {
-              "title": "戻る",
-              "children": []
+              "title": "戻る"
             },
             {
               "title": "全然前世",
-              "children": [],
               "url": "http://google.co.jp"
             },
             {
               "title": "スパークル",
-              "children": [],
               "url": "http://google.co.jp"
             },
             {
               "title": "なんでもないや",
-              "children": [],
               "url": "http://google.co.jp"
             }
           ]
@@ -107,17 +89,14 @@
           "title": "Jazz",
           "children": [
             {
-              "title": "戻る",
-              "children": []
+              "title": "戻る"
             },
             {
               "title": "Take Five",
-              "children": [],
               "url": "http://google.co.jp"
             },
             {
               "title": "Fly me to the moon",
-              "children": [],
               "url": "http://google.co.jp"
             }
           ]
@@ -128,22 +107,18 @@
       "title": "カメラ",
       "children": [
         {
-          "title": "戻る",
-          "children": []
+          "title": "戻る"
         },
         {
           "title": "玄関",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "デルタ",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "イオタ",
-          "children": [],
           "url": "http://google.co.jp"
         }
       ]
@@ -152,17 +127,14 @@
       "title": "エアコン",
       "children": [
         {
-          "title": "戻る",
-          "children": []
+          "title": "戻る"
         },
         {
           "title": "オン",
-          "children": [],
           "url": "http://google.co.jp"
         },
         {
           "title": "オフ",
-          "children": [],
           "url": "http://google.co.jp"
         }
       ]

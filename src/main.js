@@ -7,10 +7,13 @@ let data = json.data
 //keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
   data[i].key = i
+  if (!data[i].children) { data[i].children = [] }
   for(let j = 0; j < data[i].children.length; j += 1) {
     data[i].children[j].key = i+"-"+j
+    if (!data[i].children[j].children) { data[i].children[j].children = [] }
     for( let k = 0; k < data[i].children[j].children.length; k +=1) {
       data[i].children[j].children[k].key = i + "-" + j + "-" + k
+      if (!data[i].children[j].children[k].children) { data[i].children[j].children[k].children = [] }
     }
   }
 }
@@ -45,7 +48,7 @@ let Main = React.createClass({
       console.log(this.props.url)
       window.opener.location.href = item.url
 
-    // TOPであれば移動しない
+    // 最上階層であれば移動しない
     } else if (pos[pos.length-1] == 0 && pos.length == 1) {
 
     // Listの一番上なので戻る要素だから上の階層に移動
