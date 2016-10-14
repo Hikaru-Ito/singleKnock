@@ -6,12 +6,15 @@ import json from '../data.json' //初期データ
 let data = json.data
 //keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
+  if (i == 0) { data.unshift({"title": "戻る"}) }
   data[i].key = i
   if (!data[i].children) { data[i].children = [] }
   for(let j = 0; j < data[i].children.length; j += 1) {
+    if (j == 0) { data[i].children.unshift({"title": "戻る"}) }
     data[i].children[j].key = i+"-"+j
     if (!data[i].children[j].children) { data[i].children[j].children = [] }
     for( let k = 0; k < data[i].children[j].children.length; k +=1) {
+      if (k == 0) { data[i].children[j].children.unshift({"title": "戻る"}) }
       data[i].children[j].children[k].key = i + "-" + j + "-" + k
       if (!data[i].children[j].children[k].children) { data[i].children[j].children[k].children = [] }
     }
@@ -24,8 +27,8 @@ let pressTimer
 let longPress
 //戻るのタイマー入れとくとこ
 let backTimer
-//SpeechAPIの設定
-
+//ブラウジング中のURL
+let browsing
 // Class宣言
 let Main = React.createClass({
   getInitialState: function() {
@@ -44,9 +47,11 @@ let Main = React.createClass({
     let item = list[pos[pos.length-1]]
     // urlを持っていれば遷移
     if (item.url) {
-      console.log("コンテンツ遷移")
-      console.log(this.props.url)
-      window.opener.location.href = item.url
+      if (browsing != item.url) {
+        console.log("コンテンツ遷移")
+        browsing = item.url
+        window.opener.location.href = item.url
+      }
 
     // 最上階層であれば移動しない
     } else if (pos[pos.length-1] == 0 && pos.length == 1) {

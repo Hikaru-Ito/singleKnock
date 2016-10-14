@@ -1,14 +1,8 @@
 {
   "data": [
     {
-      "title": "戻る"
-    },
-    {
       "title": "電気",
       "children": [
-        {
-          "title": "戻る"
-        },
         {
           "title": "点灯",
           "url": "http://google.co.jp"
@@ -23,39 +17,28 @@
       "title": "テレビ",
       "children": [
         {
-          "title": "戻る"
+          "title": "news",
+          "url": "https://abema.tv/now-on-air/abema-news"
         },
         {
-          "title": "1ch",
-          "url": "http://google.co.jp"
+          "title": "海外ドラマ",
+          "url": "https://abema.tv/now-on-air/foreign-drama"
         },
         {
-          "title": "2ch",
-          "url": "http://google.co.jp"
+          "title": "スポーツ",
+          "url": "https://abema.tv/now-on-air/world-sports"
         },
         {
-          "title": "3ch",
-          "url": "http://google.co.jp"
+          "title": "アニメ",
+          "url": "https://abema.tv/now-on-air/anime24"
         },
         {
-          "title": "4ch",
-          "url": "http://google.co.jp"
+          "title": "音楽",
+          "url": "https://abema.tv/now-on-air/space-shower"
         },
         {
-          "title": "5ch",
-          "url": "http://google.co.jp"
-        },
-        {
-          "title": "6ch",
-          "url": "http://google.co.jp"
-        },
-        {
-          "title": "7ch",
-          "url": "http://google.co.jp"
-        },
-        {
-          "title": "8ch",
-          "url": "http://google.co.jp"
+          "title": "バラエティ",
+          "url": "https://abema.tv/now-on-air/variety"
         }
       ]
     },
@@ -63,14 +46,8 @@
       "title": "音楽",
       "children": [
         {
-          "title": "戻る"
-        },
-        {
           "title": "JPOP",
           "children": [
-            {
-              "title": "戻る"
-            },
             {
               "title": "全然前世",
               "url": "http://google.co.jp"
@@ -89,9 +66,6 @@
           "title": "Jazz",
           "children": [
             {
-              "title": "戻る"
-            },
-            {
               "title": "Take Five",
               "url": "http://google.co.jp"
             },
@@ -107,15 +81,12 @@
       "title": "カメラ",
       "children": [
         {
-          "title": "戻る"
-        },
-        {
           "title": "玄関",
           "url": "http://google.co.jp"
         },
         {
           "title": "デルタ",
-          "url": "http://google.co.jp"
+          "url": "http://masuilab.org:8765/videofeed"
         },
         {
           "title": "イオタ",
@@ -127,15 +98,25 @@
       "title": "エアコン",
       "children": [
         {
-          "title": "戻る"
-        },
-        {
           "title": "オン",
           "url": "http://google.co.jp"
         },
         {
           "title": "オフ",
           "url": "http://google.co.jp"
+        }
+      ]
+    },
+    {
+      "title": "わかるらんど",
+      "children": [
+        {
+          "title": "wakaru",
+          "url": "http://memo.masui.org/wakaru"
+        },
+        {
+          "title": "IDP",
+          "url": "http://memo.masui.org/wakaru1"
         }
       ]
     }
