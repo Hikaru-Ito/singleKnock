@@ -2,9 +2,10 @@
   "name": "single-knock",
   "version": "1.0.0",
   "description": "## notes - cross origin の制約によりChromeでは動作しません。FireFoxを使用してください。",
-  "main": "main.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -o",
+    "build": "watchify src/main.js -t babelify -o build/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,21 @@
   },
   "homepage": "https://github.com/kentosasa/singleKnock#readme",
   "dependencies": {
+    "babel-cli": "^6.16.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "react": "^15.3.2"
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "watchify": "^3.7.0"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0"
   }
 }

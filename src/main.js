@@ -1,13 +1,9 @@
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
-//初期データ
-let data = {}
-$.ajaxSetup({async: false});//同期通信(json取ってくるまで待つ)
-$.getJSON("data.json", function(json) {
-  console.log(json)
-    data = json // this will show the info it in firebug console
-});
-data = data.data
+import React from 'react'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
+import ReactDOM from 'react-dom'
+import json from '../data.json' //初期データ
 
+let data = json.data
 //keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
   data[i].key = i

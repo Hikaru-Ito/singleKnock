@@ -2,11 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello React!</title>
-    <script src="build/react-with-addons.min.js"></script>
-    <script src="build/react-dom.js"></script>
+    <title>Sub window</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
     <style type="text/css">
       html {
         height: 100%;
@@ -17,41 +14,12 @@
         display: flex;
         height: 100%;
       }
-      #main {
-        height: 100%;
-        -webkit-flex-direction: row; /* Safari */
-        flex: 1;
-      }
-      #content {
-        flex: 1;
-        height: 100%;
-        padding: 0px 32px;
-        border: none;
-      }
-      .items {
-        margin-left: 16px;
-      }
-      .item-enter {
-        opacity: 0.01;
-      }
-
-      .item-enter.item-enter-active {
-        opacity: 1;
-        transition: opacity 500ms ease-in;
-      }
-
-      .item-leave {
-        opacity: 1;
-      }
-
-      .item-leave.item-leave-active {
-        opacity: 0.01;
-        transition: opacity 300ms ease-in;
-      }
     </style>
   </head>
   <body>
-    <div id="main"></div>
-    <script type="text/babel" src="main.js"></script>
+    <h1>sub windown</h1>
+    <script type="text/javascript">
+      var win = window.open('./htmls/controller.html', 'win', 'width=400,height=600');
+    </script>
   </body>
 </html>
