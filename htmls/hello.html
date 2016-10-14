@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<h1>Hello</h1>
+<script type="text/javascript">
+var data = "tuple={\"where\":\"delta\",\"type\":\"say\", \"value\":\"Hello\"}";
+var xmlHttpRequest = new XMLHttpRequest();
+xmlHttpRequest.open( 'POST', 'http://linda-server.herokuapp.com/masuilab' );
+// サーバに対して解析方法を指定する
+xmlHttpRequest.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+// データをリクエスト ボディに含めて送信する
+xmlHttpRequest.send(data);
+</script>
+</body>
+</html>

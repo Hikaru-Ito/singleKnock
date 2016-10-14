@@ -6,7 +6,7 @@ import json from '../data.json' //初期データ
 let data = json.data
 //keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
-  if (i == 0) { data.unshift({"title": "戻る"}) }
+  if (i == 0) { data.unshift({"title": "トップ"}) }
   data[i].key = i
   if (!data[i].children) { data[i].children = [] }
   for(let j = 0; j < data[i].children.length; j += 1) {

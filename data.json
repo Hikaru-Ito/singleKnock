@@ -1,15 +1,28 @@
 {
   "data": [
     {
+      "title": "ドア",
+      "children": [
+        {
+          "title": "あける",
+          "url": "file:///Users/Kento/work/singleKnock/htmls/door_open.html"
+        },
+        {
+          "title": "とじる",
+          "url": "http://google.co.jp"
+        }
+      ]
+    },
+    {
       "title": "電気",
       "children": [
         {
           "title": "点灯",
-          "url": "http://google.co.jp"
+          "url": "file:///Users/Kento/work/singleKnock/htmls/delta_light_on.html"
         },
         {
           "title": "消灯",
-          "url": "http://google.co.jp"
+          "url": "file:///Users/Kento/work/singleKnock/htmls/delta_light_off.html"
         }
       ]
     },
@@ -89,8 +102,8 @@
           "url": "http://masuilab.org:8765/videofeed"
         },
         {
-          "title": "イオタ",
-          "url": "http://google.co.jp"
+          "title": "スクランブル交差点",
+          "url": "https://www.youtube.com/v/6q36pnzcw70&autoplay=1"
         }
       ]
     },
@@ -113,6 +126,19 @@
         {
           "title": "wakaru",
           "url": "http://memo.masui.org/wakaru"
+        },
+        {
+          "title": "IDP",
+          "url": "http://memo.masui.org/wakaru1"
+        }
+      ]
+    },
+    {
+      "title": "Deltaで喋る",
+      "children": [
+        {
+          "title": "hello",
+          "url": "file:///Users/Kento/work/singleKnock/htmls/hello.html"
         },
         {
           "title": "IDP",
