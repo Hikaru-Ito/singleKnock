@@ -8,8 +8,8 @@
           "url": "file:///Users/Kento/work/singleKnock/htmls/door_open.html"
         },
         {
-          "title": "とじる",
-          "url": "http://google.co.jp"
+          "title": "とじる(未実装)",
+          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
         }
       ]
     },
@@ -62,16 +62,16 @@
           "title": "JPOP",
           "children": [
             {
-              "title": "全然前世",
-              "url": "http://google.co.jp"
+              "title": "全然前世(未実装)",
+              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
             },
             {
-              "title": "スパークル",
-              "url": "http://google.co.jp"
+              "title": "スパークル(未実装)",
+              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
             },
             {
-              "title": "なんでもないや",
-              "url": "http://google.co.jp"
+              "title": "なんでもないや(未実装)",
+              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
             }
           ]
         },
@@ -79,12 +79,12 @@
           "title": "Jazz",
           "children": [
             {
-              "title": "Take Five",
-              "url": "http://google.co.jp"
+              "title": "Take Five(未実装)",
+              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
             },
             {
-              "title": "Fly me to the moon",
-              "url": "http://google.co.jp"
+              "title": "Fly me to the moon(未実装)",
+              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
             }
           ]
         }
@@ -94,8 +94,8 @@
       "title": "カメラ",
       "children": [
         {
-          "title": "玄関",
-          "url": "http://google.co.jp"
+          "title": "玄関(未実装)",
+          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
         },
         {
           "title": "デルタ",
@@ -111,12 +111,12 @@
       "title": "エアコン",
       "children": [
         {
-          "title": "オン",
-          "url": "http://google.co.jp"
+          "title": "オン(未実装)",
+          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
         },
         {
-          "title": "オフ",
-          "url": "http://google.co.jp"
+          "title": "オフ(未実装)",
+          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
         }
       ]
     },
