@@ -34,7 +34,7 @@ let browsing
 let Main = React.createClass({
   updateState: function(pos) {
     pos = pos.split('-')
-    for (let i = 0; i < pos.split('-').length; i++) {
+    for (let i = 0; i < pos.length; i++) {
       pos[i] = parseInt(pos[i])
     }
     this.setState({pos: pos})
@@ -177,21 +177,28 @@ let Items = React.createClass({
     );
   }
 })
-
 //描画
 let domInstance = ReactDOM.render(
   <Main />,
   document.getElementById('main')
 );
 // Linda
-let server_url = "http://localhost:8931"
+// let server_url = "http://localhost:8931"
+let server_url = "http://linda.masuilab.com"
 let socket = io.connect(server_url)
 let linda = new Linda().connect(socket)
-let ts = linda.tuplespace("linda")
+let ts = linda.tuplespace("knock")
 linda.io.on("connect", function(){
   console.log("connect")
+  ts.watch({type: "event"}, function(err, tuple) {
+    if (tuple.data.key == "press") {
+      domInstance.keyPress();
+      domInstance.keyUp();
+    } else if (tuple.data.key == "longpress") {
+      domInstance.pressTimer();
+    }
+  })
   ts.watch({type: "pos"}, function(err, tuple){
-    console.log(tuple.data.pos)
     domInstance.updateState(tuple.data.pos)
   });
 });
