@@ -5,11 +5,11 @@
       "children": [
         {
           "title": "あける",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/door_open.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/door_open.html"
         },
         {
           "title": "とじる(未実装)",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
         }
       ]
     },
@@ -18,11 +18,11 @@
       "children": [
         {
           "title": "点灯",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/delta_light_on.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/delta_light_on.html"
         },
         {
           "title": "消灯",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/delta_light_off.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/delta_light_off.html"
         }
       ]
     },
@@ -63,15 +63,15 @@
           "children": [
             {
               "title": "全然前世(未実装)",
-              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+              "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
             },
             {
               "title": "スパークル(未実装)",
-              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+              "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
             },
             {
               "title": "なんでもないや(未実装)",
-              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+              "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
             }
           ]
         },
@@ -80,11 +80,11 @@
           "children": [
             {
               "title": "Take Five(未実装)",
-              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+              "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
             },
             {
               "title": "Fly me to the moon(未実装)",
-              "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+              "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
             }
           ]
         }
@@ -95,7 +95,7 @@
       "children": [
         {
           "title": "玄関(未実装)",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
         },
         {
           "title": "デルタ",
@@ -112,11 +112,11 @@
       "children": [
         {
           "title": "オン(未実装)",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
         },
         {
           "title": "オフ(未実装)",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/wip.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/wip.html"
         }
       ]
     },
@@ -138,7 +138,7 @@
       "children": [
         {
           "title": "hello",
-          "url": "file:///Users/Kento/work/singleKnock/htmls/hello.html"
+          "url": "file:///Users/Kento/work/singleKnock/client/htmls/hello.html"
         },
         {
           "title": "IDP",

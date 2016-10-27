@@ -32,6 +32,14 @@ let backTimer
 let browsing
 // Class宣言
 let Main = React.createClass({
+  updateState: function(pos) {
+    pos = pos.split('-')
+    for (let i = 0; i < pos.split('-').length; i++) {
+      pos[i] = parseInt(pos[i])
+    }
+    this.setState({pos: pos})
+    console.log(pos)
+  },
   getInitialState: function() {
     let pos = [0]
     return {pos: pos}
@@ -73,6 +81,7 @@ let Main = React.createClass({
       pos[pos.length-1] = (list.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
     }
     this.setState({pos: pos})
+    ts.write({type: "pos", pos: pos.join('-')})
   },
   pressTimer: function() {
     let pos = this.state.pos
@@ -170,7 +179,19 @@ let Items = React.createClass({
 })
 
 //描画
-ReactDOM.render(
+let domInstance = ReactDOM.render(
   <Main />,
   document.getElementById('main')
 );
+// Linda
+let server_url = "http://localhost:8931"
+let socket = io.connect(server_url)
+let linda = new Linda().connect(socket)
+let ts = linda.tuplespace("linda")
+linda.io.on("connect", function(){
+  console.log("connect")
+  ts.watch({type: "pos"}, function(err, tuple){
+    console.log(tuple.data.pos)
+    domInstance.updateState(tuple.data.pos)
+  });
+});
