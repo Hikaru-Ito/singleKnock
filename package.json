@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server -o",
-    "build": "watchify src/main.js -t babelify -o build/bundle.js"
+    "1knock": "watchify src/1knock/main.js -t babelify -o build/bundle.js",
+    "2knock": "watchify src/2knock/main.js -t babelify -o build/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,8 @@
     "babel-cli": "^6.16.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "bufferutil": "^1.2.1",
-    "linda": "^1.2.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "socket.io-client": "^1.5.1",
-    "utf-8-validate": "^1.2.1",
     "watchify": "^3.7.0"
   },
   "babel": {

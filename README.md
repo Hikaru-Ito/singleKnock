@@ -2,11 +2,14 @@
 ## build
 
 ```
-$ npm run build
+$ npm run 1knock
+$ npm run 2knock
+$ open index.html
+
 ```
 
 ## usage
-index.htmlを開くとcontrollerが別windowで起動するよ。
-元データはdata.jsonだよ
+index.htmlを開くとcontrollerが別windowで起動する。
+元データはdata.json
+
 ## notes
-- cross origin の制約によりChromeでは動作しません。FireFoxを使用してください。

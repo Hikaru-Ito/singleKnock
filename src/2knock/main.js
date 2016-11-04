@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import ReactDOM from 'react-dom'
-import json from '../data.json' //初期データ
+import json from '../../data.json' //初期データ
+import Items from '../share/share.js'
+
+console.log('2knock')
+
 let data = json.data
 //keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
@@ -46,7 +50,7 @@ let Main = React.createClass({
   },
   posBack: function() {
     let pos = this.state.pos
-    backTimer = setTimeout(this.posBack, 1000)
+    backTimer = setTimeout(this.posBack, 3000)
     // 現在位置のitemを取ってくる
     let list = data;
     for(let i = 0; i < pos.length-1; i += 1) {
@@ -63,14 +67,14 @@ let Main = React.createClass({
     if(!keyPressed) {
       keyPressed = true
       longPress = false
-      pressTimer = setTimeout(this.pressTimer, 200)
+      pressTimer = setTimeout(this.pressTimer, 300)
     }
     clearTimeout(backTimer)
   },
   keyUp: function(e) {
     keyPressed = false
     clearTimeout(pressTimer)
-    backTimer = setTimeout(this.posBack, 1000)
+    backTimer = setTimeout(this.posBack, 3000)
     let pos = this.state.pos
     if(!longPress) {
       // 現在位置のListを取ってくる
@@ -110,69 +114,6 @@ let Main = React.createClass({
       <div>
         <Items items={data} pos={this.state.pos.join('-')}/>
         <input type="text" ref="nameInput" onKeyPress={this.keyPress} onKeyUp={this.keyUp}/>
-      </div>
-    );
-  }
-})
-
-let Item = React.createClass({
-  render: function() {
-    let pos = this.props.pos
-    let style = {}
-    if (pos == this.props.class) {
-      style.color = "white"
-      style.fontWeight = "bold"
-      style.background = "#000000"
-      //音の読み上げ
-      speechSynthesis.cancel()
-      let synthesis = new SpeechSynthesisUtterance();
-      synthesis.lang = 'ja-JP'
-      synthesis.rate = 1.5
-      synthesis.text = this.props.text
-      speechSynthesis.speak(synthesis)
-    } else {
-      style.color = "#000000"
-    }
-    // if (pos == this.props.class && this.props.url) {
-    //   console.log("コンテンツ遷移")
-    //   $('#content').attr('src', this.props.url);
-    // }
-
-    return (
-        <div className={this.props.class} style={style}>
-            {this.props.text}
-          <Items items={this.props.items} pos={pos}/>
-        </div>
-    );
-  }
-})
-
-let Items = React.createClass({
-  render: function() {
-    let pos = this.props.pos
-    let posArray = pos.split('-')
-    let show = true
-    let items = this.props.items.map(function(item, idx) {
-      let key = (""+item.key).split('-')
-      for (let i = 0; i < key.length-1; i ++) {
-        if (posArray.length < key.length || posArray[i] != key[i]) {
-          show = false
-        }
-      }
-      return (
-        <Item text={item.title} class={item.key} items= {item.children} pos={pos} key={item.key} url={item.url}>
-        </Item>
-      )
-    })
-    if (!show) { items = ""}
-    return (
-      <div className="items">
-      <ReactCSSTransitionGroup
-        transitionName="item"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
-        {items}
-      </ReactCSSTransitionGroup>
       </div>
     );
   }
