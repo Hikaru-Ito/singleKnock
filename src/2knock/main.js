@@ -6,6 +6,13 @@ import Items from '../share/share.js'
 
 console.log('2knock')
 
+//Linda
+// let server_url = "http://localhost:8931"
+let server_url = "http://linda.masuilab.com"
+let socket = io.connect(server_url)
+let linda = new Linda().connect(socket)
+let ts = linda.tuplespace("knock")
+
 let data = json.data
 //keyを割り振る
 for(let i = 0; i < data.length; i += 1) {
@@ -85,7 +92,6 @@ let Main = React.createClass({
       pos[pos.length-1] = (list.length-1 === pos[pos.length-1] ? 0 : pos[pos.length-1] + 1)
     }
     this.setState({pos: pos})
-    ts.write({type: "pos", pos: pos.join('-')})
   },
   pressTimer: function() {
     let pos = this.state.pos
@@ -110,6 +116,7 @@ let Main = React.createClass({
     this.refs.nameInput.focus();
   },
   render: function() {
+    ts.write({type: "render", pos: this.state.pos.join('-')})
     return (
       <div>
         <Items items={data} pos={this.state.pos.join('-')}/>
@@ -123,12 +130,8 @@ let domInstance = ReactDOM.render(
   <Main />,
   document.getElementById('main')
 );
+
 // Linda
-// let server_url = "http://localhost:8931"
-let server_url = "http://linda.masuilab.com"
-let socket = io.connect(server_url)
-let linda = new Linda().connect(socket)
-let ts = linda.tuplespace("knock")
 linda.io.on("connect", function(){
   console.log("connect")
   ts.watch({type: "event"}, function(err, tuple) {

@@ -4,7 +4,15 @@ import ReactDOM from 'react-dom'
 import json from '../../data.json' //初期データ
 import Items from '../share/share.js'
 
-console.log("2knock")
+console.log("1knock")
+
+//Linda
+// let server_url = "http://localhost:8931"
+let server_url = "http://linda.masuilab.com"
+let socket = io.connect(server_url)
+let linda = new Linda().connect(socket)
+let ts = linda.tuplespace("knock")
+
 
 let data = json.data
 //keyを割り振る
@@ -34,6 +42,14 @@ let backTimer
 let browsing
 // Class宣言
 let Main = React.createClass({
+  updateState: function(pos) {
+    pos = pos.split('-')
+    for (let i = 0; i < pos.length; i++) {
+      pos[i] = parseInt(pos[i])
+    }
+    this.setState({pos: pos})
+    console.log(pos)
+  },
   getInitialState: function() {
     let pos = [0]
     return {pos: pos}
@@ -96,6 +112,7 @@ let Main = React.createClass({
     this.refs.nameInput.focus();
   },
   render: function() {
+    ts.write({type: "pos", pos: this.state.pos.join('-')})
     return (
       <div>
         <Items items={data} pos={this.state.pos.join('-')}/>
@@ -110,3 +127,17 @@ ReactDOM.render(
   <Main />,
   document.getElementById('main')
 );
+
+// Linda
+linda.io.on("connect", function(){
+  console.log("connect")
+  ts.watch({type: "event"}, function(err, tuple) {
+    if (tuple.data.key == "press") {
+      domInstance.keyPress();
+      domInstance.keyUp();
+    }
+  })
+  ts.watch({type: "pos"}, function(err, tuple){
+    domInstance.updateState(tuple.data.pos)
+  });
+});
